@@ -1,9 +1,17 @@
 package api
 
+type NetType = string
+
+const (
+	NodePoolSubnetType        NetType = "NodePoolSubnet"
+	ContainerSubnetType       NetType = "ContainerSubnet"
+	CustomContainerSubnetType NetType = "CustomSubnetContainer"
+)
+
 type SubnetRelation struct {
-	ClusterID        string
-	ClusterName      string
-	NetType          string
+	ClusterID   string
+	ClusterName string
+	//NetType          NetType
 	NodePoolSubnets  []NodePoolSubnet
 	ContainerSubnets []ContainerSubnet
 }
@@ -26,4 +34,10 @@ type CustomContainerSubnet struct {
 }
 
 type MyMetric struct {
+	ClusterID    string
+	ClusterName  string
+	NetType      string
+	NodePoolName string
+	NodePoolID   string
+	SubnetID     string
 }
